@@ -56,6 +56,8 @@ ALTER TABLE `products` ADD FOREIGN KEY (`merchant_id`) REFERENCES `merchants` (`
 
 ALTER TABLE `merchants` ADD FOREIGN KEY (`admin_id`) REFERENCES `users` (`id`);
 
+ALTER TABLE `order_items` ADD PRIMARY KEY (`order_id`, `product_id`);
+
 CREATE INDEX `product_status` ON `products` (`merchant_id`, `status`);
 
 CREATE UNIQUE INDEX `products_index_1` ON `products` (`id`) USING HASH;

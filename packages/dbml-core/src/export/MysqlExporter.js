@@ -114,12 +114,19 @@ class MySQLExporter extends Exporter {
 
   exportIndexes () {
     const indexArr = this.indexes.map((index, i) => {
-      let line = 'CREATE';
-      if (index.unique) {
-        line += ' UNIQUE';
+      let line = '';
+      if (index.pk) {
+        line = `ALTER TABLE \`${index.table.name}\` ADD PRIMARY KEY`;
+      } else {
+        line = 'CREATE';
+        if (index.unique) {
+          line += ' UNIQUE';
+        }
+        const indexName = index.name
+          ? `\`${index.name}\``
+          : `\`${index.table.name}_index_${i}\``;
+        line += ` INDEX ${indexName} ON \`${index.table.name}\``;
       }
-      const indexName = index.name ? `\`${index.name}\`` : `\`${index.table.name}_index_${i}\``;
-      line += ` INDEX ${indexName} ON \`${index.table.name}\``;
 
       const columnArr = [];
       index.columns.forEach((column) => {

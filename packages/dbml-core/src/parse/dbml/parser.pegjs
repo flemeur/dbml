@@ -266,6 +266,9 @@ IndexSettings
         let res = {};
     arrSettings.forEach((ele) => {
       if (typeof ele === 'string') {
+        if (ele.toLowerCase() == "primary key" || ele.toLowerCase() == 'pk') {
+          res.pk = true;
+        }
         if (ele.toLowerCase() == "unique") {
           res.unique = true;
         }
@@ -287,6 +290,8 @@ IndexSettings
 IndexSetting
   =
     _ a:"unique"i _ { return a }
+  / _ a:"primary key"i _ { return a }
+  / _ a:"pk"i _ { return a }
   / _ v:IndexName _ { return { type: 'name', value: v } }
   / _ v:IndexType _ { return { type: 'type', value: v } }
 IndexName

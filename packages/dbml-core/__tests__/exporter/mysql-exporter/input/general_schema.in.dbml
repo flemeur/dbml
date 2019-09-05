@@ -21,6 +21,10 @@ Table "order_items" {
   "order_id" int
   "product_id" int
   "quantity" int [default: 1]
+
+  Indexes {
+    (order_id, product_id) [pk]
+  }
 }
 
 Table "products" {

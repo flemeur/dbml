@@ -1,0 +1,93 @@
+{
+	"tables": [
+		{
+			"name": "user_tasks",
+			"alias": null,
+			"fields": [
+				{
+					"name": "user_id",
+					"type": {
+						"type_name": "int",
+						"args": null
+					},
+					"token": {
+						"start": {
+							"offset": 16,
+							"line": 2,
+							"column": 3
+						},
+						"end": {
+							"offset": 37,
+							"line": 3,
+							"column": 1
+						}
+					},
+					"inline_refs": []
+				},
+				{
+					"name": "task_id",
+					"type": {
+						"type_name": "int",
+						"args": null
+					},
+					"token": {
+						"start": {
+							"offset": 16,
+							"line": 2,
+							"column": 3
+						},
+						"end": {
+							"offset": 37,
+							"line": 3,
+							"column": 1
+						}
+					},
+					"inline_refs": []
+				}
+			],
+
+			"token": {
+				"start": {
+					"offset": 0,
+					"line": 1,
+					"column": 1
+				},
+				"end": {
+					"offset": 410,
+					"line": 20,
+					"column": 2
+				}
+			},
+
+			"indexes": [
+				{
+					"columns": [
+						{
+							"value": "user_id",
+							"type": "column"
+						},
+						{
+							"value": "task_id",
+							"type": "column"
+						}
+					],
+					"token": {
+						"start": {
+							"offset": 207,
+							"line": 12,
+							"column": 1
+						},
+						"end": {
+							"offset": 224,
+							"line": 12,
+							"column": 18
+						}
+					},
+					"pk": true
+				}
+			]
+		}
+	],
+	"refs": [],
+	"enums": []
+}
